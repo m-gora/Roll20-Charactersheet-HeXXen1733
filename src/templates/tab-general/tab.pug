@@ -1,0 +1,25 @@
+mixin attributes(title, ...attrs)
+  h2= title
+  each attr in attrs
+    span= attr
+    input(type="number", name="attr_" + attr)
+
+div.2colrow
+  div.col
+    include character.pug
+  div.col
+    include roles-and-money.pug
+div.2colrow
+  div.col
+    include clothing.pug
+  div.col
+    h2 Restliche Ausr&uuml;stung
+    textarea(name="attr_misc_gear")
+div.2colrow
+  div.col
+    +attributes("K&ouml;rperliche Attribute", "kkr", "ath", "ges", "coups")
+  div.col
+    +attributes("Geistige Attribute", "sin", "wis", "wil", "ideas")
+div.2colrow
+  div.col
+    include skills.pug

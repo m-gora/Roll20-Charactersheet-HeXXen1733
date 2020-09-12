@@ -1,0 +1,36 @@
+-
+  let characterFields = [
+    {
+      "title": "Name",
+      "name": "character_name"
+    },
+    {
+      "title": "J&aumlgerstufe",
+      "name": "hunter_level"
+    },
+    {
+      "title": "Profession",
+      "name": "profession"
+    },
+    {
+      "title": "Motivation",
+      "name": "motivation"
+    },
+    {
+      "title": "Vorteil",
+      "name": "advantage"
+    },
+    {
+      "title": "Verderbnis",
+      "name": "corruption"
+    },
+    {
+      "title": "Segnungen",
+      "name": "blessings"
+    }
+  ]
+  
+h2 Charakter
+  each field in characterFields
+    label= field.title
+    input(type="text", name="attr_" + field.name)

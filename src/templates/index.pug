@@ -1,0 +1,35 @@
+block variables
+- 
+  var tabs = [{
+    "name": "General", 
+    "title": "Allgemein"
+  }, 
+  {
+    "name": "Combat", 
+    "title": "Kampf"
+  }, {
+    "name": "Powers", 
+    "title": "Kr&auml;fte"
+  }]
+- var contents = []
+
+block mainContent
+  input(type="hidden", name="attr_difficulty_macro", value="?{Schwierigkeit|0}d6>4")
+  input(type="hidden", name="attr_malus_macro", value="@{malus_damage}d6>4")
+  
+  each tab, index in tabs
+    input(type="radio", id="radio-tab-" + index, name="attr_sheet_tab", title=tab.name, value=index class="sheet-select.sheet-select-" + index)
+    span(title=tab.title)
+    
+  each tab, index in tabs  
+    div(class="sheet-tab.sheet-tab-" + index)
+      case tab.name
+        when "General"
+          include tab-general/tab.pug
+        when "Combat"
+          include tab-combat/tab.pug
+        when "Powers"
+          include tab-powers/tab.pug
+
+  script(type="text/worker")
+    include ../js/worker.js
