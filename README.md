@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/pantherophis-bln/Roll20-Charactersheet-HeXXen1733.svg?branch=develop)](https://travis-ci.org/pantherophis-bln/Roll20-Charactersheet-HeXXen1733)
+
 # HeXXen 1733 Roll20 Charactersheet
 This is the source code for the Roll20 Charactersheet for the tabletop RPG HeXXen 1733.
 
