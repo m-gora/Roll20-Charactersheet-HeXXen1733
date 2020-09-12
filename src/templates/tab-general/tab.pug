@@ -18,8 +18,12 @@ div.2colrow
 div.2colrow
   div.col
     +attributes("Körperliche Attribute", "kkr", "ath", "ges", "coups")
+    | /
+    input(type="number", name="attr_coups_max", readonly)
   div.col
     +attributes("Geistige Attribute", "sin", "wis", "wil", "ideas")
+    | /
+    input(type="number", name="attr_ideas_max", readonly)
 div.2colrow
   div.col
     include skills.pug
