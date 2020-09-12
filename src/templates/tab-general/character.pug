@@ -5,7 +5,7 @@
       "name": "character_name"
     },
     {
-      "title": "J&aumlgerstufe",
+      "title": "Jägerstufe",
       "name": "hunter_level"
     },
     {
@@ -31,6 +31,6 @@
   ]
   
 h2 Charakter
-  each field in characterFields
-    label= field.title
-    input(type="text", name="attr_" + field.name)
+each field in characterFields
+  label= field.title
+  input(type="text", name="attr_" + field.name)

@@ -1,0 +1,29 @@
+- for(col=1; col < 3; col++)
+  div.col
+    h2 Ausbaukr&auml;fte
+    table
+      tr
+        th(colspan="2") Ausbaukraft
+        th
+          input(type="text", name="attr_power_group_" + col)
+      - for(row=1; row < 11; row++)
+        tr
+          case row
+            when 1
+              td S
+            when 2
+            when 3
+            when 4
+              td G
+            when 5
+            when 6
+            when 7
+              td E
+            when 8
+            when 9
+            when 10
+              td M
+          td
+            input(type="text", name="attr_power_" + col + "_" + row)
+          td
+            input(type="text", name="attr_power_" + col + "_" + row + "_desc")

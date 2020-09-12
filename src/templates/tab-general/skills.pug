@@ -1,0 +1,81 @@
+-
+  let skills = [{
+    "title": "Akrobatik",
+    "name": "acrobatics",
+    "attribute": "ath"
+  },{
+    "title": "Aufmerksamkeit",
+    "name": "perception",
+    "attribute": "sin"
+  },{
+    "title": "Erkennen",
+    "name": "identify",
+    "attribute": "sin"
+  },{
+    "title": "Erste Hilfe",
+    "name": "first_aid",
+    "attribute": "wis"
+  },{
+    "title": "Fingerfertigkeit",
+    "name": "sleight_of_hands",
+    "attribute": "ges"
+  },{
+    "title": "Geistesst&auml;rke",
+    "name": "mind",
+    "attribute": "wil"
+  },{
+    "title": "Handwerken",
+    "name": "craft",
+    "attribute": "ges"
+  },{
+    "title": "Heimlichkeit",
+    "name": "stealth",
+    "attribute": "ath"
+  },{
+    "title": "Land und Leute",
+    "name": "people",
+    "attribute": "wis"
+  },{
+    "title": "Redekunst",
+    "name": "speech",
+    "attribute": "wil"
+  },{
+    "title": "Muskelspiel",
+    "name": "flex",
+    "attribute": "kkr"
+  },{
+    "title": "Reflexe",
+    "name": "reflex",
+    "attribute": "sin"
+  },{
+    "title": "Reiten",
+    "name": "ride",
+    "attribute": "ath"
+  },{
+    "title": "Unempfindlichkeit",
+    "name": "imperviousness",
+    "attribute": "kkr"
+  },{
+    "title": "Wissensgebiete",
+    "name": "knowledge",
+    "attribute": "wis"
+  }]
+
+h2 Allgemeine F&auml;higkeiten
+table
+  tr
+    th Name
+    th FW
+    th Attribut
+    th Summe
+    th
+  each skill in skills
+    tr
+      td= skill.title
+      td
+        input(type="number", name="attr_" + skill.name)
+      th= "+" + skill.attribute
+      td
+        input(type="number", name="attr_" + skill.name + "_sum", readonly)
+      td
+        button(type="roll", name="roll_" + skill.name, value!="&{template:default} {{name=" + skill.title + "}} {{Ergebnis=[[@{" + skill.name + "_sum}d6>5+@{difficulty_macro}-@{malus_macro}]]}}")

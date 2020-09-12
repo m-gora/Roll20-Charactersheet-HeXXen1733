@@ -10,11 +10,17 @@
   "contributors": [],
   "dependencies": {},
   "devDependencies": {
+    "ncp": "^2.0.0",
     "pug": "^3.0.0",
-    "pug-cli": "^1.0.0-alpha6"
+    "pug-cli": "^1.0.0-alpha6",
+    "rimraf": "^3.0.2"
   },
   "scripts": {
-    "build": "pug src/templates -o dist",
-    "watch": "pug src/templates -o dist -w -P"
+    "build": "yarn copy-static && yarn copy-css && yarn build-html && rimraf ./dist/tab-*",
+    "watch": "pug src/templates -o dist -w -P",
+    "copy-static": "ncp src/static dist",
+    "copy-css": "ncp src/css dist",
+    "build-html": "pug src/templates -o dist -P",
+    "clean": "rimraf ./dist"
   }
 }
