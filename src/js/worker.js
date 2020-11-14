@@ -41,7 +41,7 @@ var updateAp = () => {
 var updateBaseStats = () => {
   getAttrs(baseStats, (values) => {
     setAttrs({
-      coups_max: values.kkr,
+      coups_max: values.ath,
       ideas_max: values.wis,
       hp_max: sumArgs(values.kkr, values.wil, 7),
       init: sumArgs(values.sin, values.ges),
