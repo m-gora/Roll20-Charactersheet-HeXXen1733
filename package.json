@@ -1,0 +1,26 @@
+{
+  "name": "roll20-charactersheet-hexxen1733",
+  "version": "1.0.0",
+  "description": "This is a roll20 character sheet for the tabletop RPG HeXXen 1733.",
+  "license": "MIT",
+  "author": {
+    "name": "Marco Gora",
+    "email": "marco.gora.de@gmail.com"
+  },
+  "contributors": [],
+  "dependencies": {},
+  "devDependencies": {
+    "ncp": "^2.0.0",
+    "pug": "^3.0.0",
+    "pug-cli": "^1.0.0-alpha6",
+    "rimraf": "^3.0.2"
+  },
+  "scripts": {
+    "build": "yarn copy-static && yarn copy-css && yarn build-html && rimraf ./dist/tab-*",
+    "watch": "pug src/templates -o dist -w -P",
+    "copy-static": "ncp src/static dist",
+    "copy-css": "ncp src/css dist",
+    "build-html": "pug src/templates -o dist -P",
+    "clean": "rimraf ./dist"
+  }
+}
