@@ -26,6 +26,17 @@ div.2colrow
     input(type="number", name="attr_ideas_max", readonly)
 div.2colrow
   div.col
+    h2 Ambitionen
+    button(type="action", name="act_ambition_sub") -
+    input(type="number", name="attr_ambition" readonly)
+    button(type="action", name="act_ambition_add") +
+  div.col
+    h2 Rage
+    button(type="action", name="act_rage_sub") -
+    input(type="number", name="attr_rage", readonly)
+    button(type="action", name="act_rage_add") +
+div.2colrow
+  div.col
     include skills.pug
   div.col
     include dice.pug

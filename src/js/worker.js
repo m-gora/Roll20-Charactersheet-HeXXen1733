@@ -28,6 +28,22 @@ on("change:armor change:para_damage", () => {
   updateAp();
 });
 
+on("clicked:ambition_add", () => {
+  addAmbitionOrRage("ambition", "rage");
+});
+
+on("clicked:ambition_sub", () => {
+  subAmbition();
+});
+
+on("clicked:rage_add", () => {
+  addAmbitionOrRage("rage", "ambition");
+});
+
+on("clicked:rage_sub", () => {
+  subRage();
+});
+
 var updateAp = () => {
   getAttrs(["armor", "para_damage"], (values) => {
     let armor = parseInt(values.armor) * (-1);
@@ -93,6 +109,43 @@ var updateSkills = () => {
       imperviousness_sum: sumArgs(values.imperviousness, values.kkr),
       knowledge_sum: sumArgs(values.knowledge, values.wis)
     });
+  });
+};
+
+var subRage = () => {
+  getAttrs(["rage"], values => {
+    if(values.rage > 0) {
+      values.rage--;
+      setAttrs(values);
+    }
+  });
+};
+
+var subAmbition = () => {
+  getAttrs(["ambition"], values => {
+    if(values.ambition > 0) {
+      values.ambition--;
+      setAttrs(values);
+    }
+  });
+};
+
+var addAmbitionOrRage = (addStat, subStat) => {
+  getAttrs(["ambition", "rage"], values => {
+    console.log(values);
+    if(values[addStat] >= 5) {
+      values[addStat] = 5;
+    } else {
+      values[addStat]++;
+    }
+
+    if(values[subStat] <= 0) {
+      values[subStat] = 0;
+    } else {
+      values[subStat]--;
+    }
+    console.log(values);
+    setAttrs(values);
   });
 };
 

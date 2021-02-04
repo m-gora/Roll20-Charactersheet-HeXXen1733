@@ -20,7 +20,7 @@
     "name": "sleight_of_hands",
     "attribute": "ges"
   },{
-    "title": "Geistesst&auml;rke",
+    "title": "Geistesstärke",
     "name": "mind",
     "attribute": "wil"
   },{
@@ -64,7 +64,7 @@
     "name" : "witchcraft",
     "attribute" : "wis"
   }];
-  skills.sort((a, b) -> a.localCompare(b));
+  skills.sort((a, b) => a.title > b.title ? 1 : -1);
 
 h2 Allgemeine F&auml;higkeiten
 table
