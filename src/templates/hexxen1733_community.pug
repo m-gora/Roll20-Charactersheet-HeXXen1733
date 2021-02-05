@@ -14,8 +14,9 @@ block variables
 - var contents = []
 
 block mainContent
-  input(type="hidden", name="attr_difficulty_macro", value!="?{Schwierigkeit|0}d6>4")
-  input(type="hidden", name="attr_malus_macro", value!="@{malus_damage}d6>4")
+  input(type="hidden", name="attr_difficulty_macro", value!="?{Erschwernis / Erleichterung|Keine,0|Erleichterung 5, 5|Erleichterung 4, 4|Erleichterung 3, 3|Erleichterung 2, 2| Erleichterung 1,1|Erschwernis 1, -1| Erschwernis 2, -2| Erschwernis 3, -3|Erschwernis 4, -4| Erschwernis 5, -5}")
+  input(type="hidden", name="attr_janus_dice_num" value="{{@{difficulty_macro}-@{malus_damage}},{-5}}kh1")
+  input(type="hidden", name="attr_janus_macro", value!="[[@{janus_dice_num}]]d6>4")
   
   each tab, index in tabs
     input(type="radio", id="radio-tab-" + (index + 1), name="attr_sheet_tab", title=tab.name, value= (index + 1) class="sheet-select sheet-select-" + (index + 1))

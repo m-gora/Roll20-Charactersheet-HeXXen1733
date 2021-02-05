@@ -28,6 +28,8 @@ on("change:armor change:para_damage", () => {
   updateAp();
 });
 
+// click handlers for rage and ambition
+
 on("clicked:ambition_add", () => {
   addAmbitionOrRage("ambition", "rage");
 });
@@ -43,6 +45,8 @@ on("clicked:rage_add", () => {
 on("clicked:rage_sub", () => {
   subRage();
 });
+
+// functions
 
 var updateAp = () => {
   getAttrs(["armor", "para_damage"], (values) => {
@@ -116,7 +120,7 @@ var subRage = () => {
   getAttrs(["rage"], values => {
     if(values.rage > 0) {
       values.rage--;
-      setAttrs(values);
+      setAttrs(values, "silent");
     }
   });
 };
@@ -125,7 +129,7 @@ var subAmbition = () => {
   getAttrs(["ambition"], values => {
     if(values.ambition > 0) {
       values.ambition--;
-      setAttrs(values);
+      setAttrs(values, "silent");
     }
   });
 };
@@ -145,7 +149,7 @@ var addAmbitionOrRage = (addStat, subStat) => {
       values[subStat]--;
     }
     console.log(values);
-    setAttrs(values);
+    setAttrs(values, "silent");
   });
 };
 

@@ -83,4 +83,4 @@ table
       td
         input(type="number", name="attr_" + skill.name + "_sum", readonly)
       td
-        button(type="roll", name="roll_" + skill.name, value!="&{template:default} {{name=" + skill.title + "}} {{Ergebnis=[[@{" + skill.name + "_sum}d6>5+@{difficulty_macro}-@{malus_macro}]]}}")
+        button(type="roll", name="roll_" + skill.name, value!="&{template:default} {{name=" + skill.title + "}} {{Ergebnis=[[@{" + skill.name + "_sum}d6>5+@{janus_macro}]]}}")
