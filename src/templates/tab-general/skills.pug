@@ -20,7 +20,7 @@
     "name": "sleight_of_hands",
     "attribute": "ges"
   },{
-    "title": "Geistesst&auml;rke",
+    "title": "Geistesstärke",
     "name": "mind",
     "attribute": "wil"
   },{
@@ -59,7 +59,12 @@
     "title": "Wissensgebiete",
     "name": "knowledge",
     "attribute": "wis"
-  }]
+  },{
+    "title" : "Hexenkunst",
+    "name" : "witchcraft",
+    "attribute" : "wis"
+  }];
+  skills.sort((a, b) => a.title > b.title ? 1 : -1);
 
 h2 Allgemeine F&auml;higkeiten
 table
@@ -78,4 +83,4 @@ table
       td
         input(type="number", name="attr_" + skill.name + "_sum", readonly)
       td
-        button(type="roll", name="roll_" + skill.name, value!="&{template:default} {{name=" + skill.title + "}} {{Ergebnis=[[@{" + skill.name + "_sum}d6>5+@{difficulty_macro}-@{malus_macro}]]}}")
+        button(type="roll", name="roll_" + skill.name, value!="&{template:default} {{name=" + skill.title + "}} {{Ergebnis=[[@{" + skill.name + "_sum}d6>5+@{janus_macro}]]}}")

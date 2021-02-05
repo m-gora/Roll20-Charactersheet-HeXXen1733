@@ -14,7 +14,7 @@ mixin weapon(name, displayname,  damage, ap, attribute, info)
     td
       input(type="number", name="attr_weapon_" + name + "_sum" readonly)
     td
-      button(type="roll", name="roll_weapon_" + name, value="&{template:default} {{name=" + displayname + "}} {{attack=[[@{weapon_" + name + "_sum}d6>5+@{difficulty_macro}-@{malus_macro}]]}} {{damage=[[@{weapon_" + name + "_dmg}]]}}")
+      button(type="roll", name="roll_weapon_" + name, value="&{template:default} {{name=" + displayname + "}} {{attack=[[@{weapon_" + name + "_sum}d6>5+@{janus_macro}]]}} {{damage=[[@{weapon_" + name + "_dmg}]]}}")
 
 -
   let weapons = [{
@@ -143,7 +143,7 @@ table
     td
       input(type="number", name="attr_weapon_fist_sum" readonly)
     td
-      button(type="roll", name="roll_weapon_fist", value="&{template:default} {{name=Fausthieb}} {{attack=[[@{weapon_fist_sum}d6>5+@{difficulty_macro}-@{malus_macro}]]}} {{damage=[[@{weapon_fist_dmg}]]}}")
+      button(type="roll", name="roll_weapon_fist", value="&{template:default} {{name=Fausthieb}} {{attack=[[@{weapon_fist_sum}d6>5+@{janus_macro}]]}} {{damage=[[@{weapon_fist_dmg}]]}}")
   each weapon in weapons
     +weapon(weapon.name, weapon.displayname, weapon.damage, weapon.ap, weapon.attribute, weapon.info)
   tr
@@ -160,7 +160,7 @@ table
     td
       input(type="number", name="attr_weapon_dodge_sum" readonly)
     td
-      button(type="roll", name="roll_weapon_dodge", value="&{template:default} {{name=Ausweichen}} {{attack=[[@{weapon_dodge_sum}d6>5+@{difficulty_macro}-@{malus_macro}]]}}")
+      button(type="roll", name="roll_weapon_dodge", value="&{template:default} {{name=Ausweichen}} {{attack=[[@{weapon_dodge_sum}d6>5+@{janus_macro}]]}}")
   tr
     td
       input(type="checkbox" name="attr_weapon_shield")
@@ -175,5 +175,5 @@ table
     td
       input(type="number", name="attr_weapon_shield_sum" readonly)
     td
-      button(type="roll", name="roll_weapon_shield", value="&{template:default} {{name=Schildbenutzung}} {{attack=[[@{weapon_shield_sum}d6>5+@{difficulty_macro}-@{malus_macro}]]}}")
+      button(type="roll", name="roll_weapon_shield", value="&{template:default} {{name=Schildbenutzung}} {{attack=[[@{weapon_shield_sum}d6>5+@{janus_macro}]]}}")
     
