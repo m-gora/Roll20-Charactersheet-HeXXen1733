@@ -1,0 +1,28 @@
+name: CI
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: install yarn dev dependencies
+        uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: install
+      - name: build character sheet distribution
+        uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: build
+      - name: push to roll20-character-sheets fork
+        uses: cpina/github-action-push-to-another-repository@master
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: 'dist'
+          destination-github-username: 'm-gora'
+          destination-repository-name: 'roll20-character-sheets'
+          user-email: blackanthrax666@gmail.com
