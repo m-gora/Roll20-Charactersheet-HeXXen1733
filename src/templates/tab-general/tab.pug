@@ -1,7 +1,7 @@
 mixin attributes(title, ...attrs)
-  h2= title
+  h2(data-i18n=title + "-u")= title
   each attr in attrs
-    span= attr
+    span(data-i18n=attr + "-u")= attr
     input(type="number", name="attr_" + attr)
 
 div.2colrow
@@ -13,25 +13,25 @@ div.2colrow
   div.col
     include clothing.pug
   div.col
-    h2 Restliche Ausr&uuml;stung
+    h2(data-i18n="misc_gear-u") Restliche Ausr&uuml;stung
     textarea(name="attr_misc_gear")
 div.2colrow
   div.col
-    +attributes("Körperliche Attribute", "kkr", "ath", "ges", "coups")
+    +attributes("physical_attributes", "kkr", "ath", "ges", "coups")
     | /
     input(type="number", name="attr_coups_max", readonly)
   div.col
-    +attributes("Geistige Attribute", "sin", "wis", "wil", "ideas")
+    +attributes("mental_attributes", "sin", "wis", "wil", "ideas")
     | /
     input(type="number", name="attr_ideas_max", readonly)
 div.2colrow
   div.col
-    h2 Ambitionen
+    h2(data-i18n="ambitions-u") Ambitionen
     button(type="action", name="act_ambition_sub") -
     input(type="number", name="attr_ambition" readonly)
     button(type="action", name="act_ambition_add") +
   div.col
-    h2 Rage
+    h2(data-i18n="rage-u") Rage
     button(type="action", name="act_rage_sub") -
     input(type="number", name="attr_rage", readonly)
     button(type="action", name="act_rage_add") +

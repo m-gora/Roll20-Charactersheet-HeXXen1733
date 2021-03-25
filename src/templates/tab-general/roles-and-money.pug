@@ -1,10 +1,10 @@
-h2 Rollen
+h2(data-i18n="roles-u") Rollen
 - for(let x = 1; x < 4; x++)
-  label= "Rolle #" + x
+  label(data-i18n="role-" + x + "-u")= "Rolle #" + x
   input(type="text", name="attr_role_" + x)
 
-h2 Geld
-label Unterhalt
+h2(data-i18n="money-u") Geld
+label(data-i18n="upkeep-u") Unterhalt
 input(type="text", name="attr_upkeep")
-label Verm&ouml;gen
+label(data-i18n="assets-u") Verm&ouml;gen
 input(type="text", name="attr_assets")

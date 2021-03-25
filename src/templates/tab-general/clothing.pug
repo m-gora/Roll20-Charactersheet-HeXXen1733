@@ -1,6 +1,6 @@
-h2 Kleidungssets
+h2(data-i18n="clothing") Kleidungssets
 - for(var x=1; x < 3; x++)
-  label= "Set #" + x
+  label(data-i18n="set-" + x + "-u")= "Set #" + x
   input(type="text", name="attr_clothing_set_" + x)
-  label Bonus
+  label(data-i18n="bonus") Bonus
   input(type="text", name="attr_clothing_set_" + x + "_bonus")

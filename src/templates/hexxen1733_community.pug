@@ -2,25 +2,31 @@ block variables
 - 
   var tabs = [{
     "name": "General", 
-    "title": "Allgemein"
+    "title": "Allgemein",
+    "i18n": "general-u"
   }, 
   {
     "name": "Combat", 
-    "title": "Kampf"
+    "title": "Kampf",
+    "i18n": "combat-u"
   }, {
     "name": "Powers", 
-    "title": "Kräfte"
+    "title": "Kräfte",
+    "i18n": "powers-u"
   }]
 - var contents = []
 
 block mainContent
-  input(type="hidden", name="attr_difficulty_macro", value!="?{Erschwernis / Erleichterung|Keine,0|Erleichterung 5, 5|Erleichterung 4, 4|Erleichterung 3, 3|Erleichterung 2, 2| Erleichterung 1,1|Erschwernis 1, -1| Erschwernis 2, -2| Erschwernis 3, -3|Erschwernis 4, -4| Erschwernis 5, -5}")
+  input(type="hidden", name="i18n_helper_none", value="Keine")
+  input(type="hidden", name="i18n_helper_relief", value="Erleichterung")
+  input(type="hidden", name="i18n_helper_difficulty", value="Erschwernis")
+  input(type="hidden", name="attr_difficulty_macro", value!="?{@{i18n_helper_difficulty} / @{i18n_helper_relief}|@{i18n_helper_none},0|@{i18n_helper_relief} 5, 5|@{i18n_helper_relief} 4, 4|@{i18n_helper_relief} 3, 3|@{i18n_helper_relief} 2, 2| @{i18n_helper_relief} 1,1|@{i18n_helper_difficulty} 1, -1| @{i18n_helper_difficulty} 2, -2| @{i18n_helper_difficulty} 3, -3|@{i18n_helper_difficulty} 4, -4| @{i18n_helper_difficulty} 5, -5}")
   input(type="hidden", name="attr_janus_dice_num" value="{{@{difficulty_macro}-@{malus_damage}},{-5}}kh1")
   input(type="hidden", name="attr_janus_macro", value!="[[@{janus_dice_num}]]d6>4")
   
   each tab, index in tabs
-    input(type="radio", id="radio-tab-" + (index + 1), name="attr_sheet_tab", title=tab.name, value= (index + 1) class="sheet-select sheet-select-" + (index + 1))
-    span(title=tab.title)
+    input(type="radio", id="radio-tab-" + (index + 1), name="attr_sheet_tab", title=tab.name, value= (index + 1) class="sheet-select sheet-select-" + (index + 1), data-i18n-title=tab.i18n)
+    span(title=tab.title, data-i18n-title=tab.i18n)
     
   each tab, index in tabs  
     div(class="sheet-tab sheet-tab-" + (index + 1))
@@ -33,6 +39,14 @@ block mainContent
           include tab-powers/tab.pug
 
   script(type="text/worker")
-    include ../js/worker.js
+    include ../js/sheet-workers/utils.js
+  script(type="text/worker")
+    include ../js/sheet-workers/ambition_rage.js
+  script(type="text/worker")
+    include ../js/sheet-workers/ap.js
+  script(type="text/worker")
+    include ../js/sheet-workers/skills.js
+  script(type="text/worker")
+    include ../js/i18n.js
   script(type="text/worker")
     include ../js/migrations.js

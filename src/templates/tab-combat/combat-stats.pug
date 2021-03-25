@@ -1,62 +1,62 @@
 mixin radio_array(name)
   - for(i=0; i <= 5; i++)
     label.sheet-container
-      input(type="radio", name="attr_" + name + "_damage", value=i, checked=i === 0 ? "checked" : "")
+      input(type="radio", name="attr_" + name + "_damage", value=i)
       span(class="sheet-checkmark")=i
 
 div.2colrow
   div.col
-    h2 Anhaltende Einflüsse
-    h4 Äusserer Schaden
+    h2(data-i18n="persistent_influences-u") Anhaltende Einflüsse
+    h4(data-i18n="external_damage-u") Äusserer Schaden
     +radio_array("ext")
   div.col
-    h2 Abgeleitete Ressourcen
-    h4 LeP
+    h2(data-i18n="derived_ressources-u") Abgeleitete Ressourcen
+    h4(data-i18n="hp-u") LeP
     input(type="number", name="attr_hp")
     span /
     input(type="number", name="attr_hp_max" readonly)
       
 div.2colrow
   div.col
-    h4 Innerer Schaden
+    h4(data-i18n="internal_damage-u") Innerer Schaden
     +radio_array("int")
   div.col
-    h4 Bonus-LeP
+    h4(data-i18n="bonus_hp-u") Bonus-LeP
     input(type="number", name="attr_bonus_hp")
       
 div.2colrow
   div.col
-    h4 Malusschaden
+    h4(data-i18n="malus-damage-u") Malusschaden
     +radio_array("malus")
   div.col
-    h4 Initiative
+    h4(data-i18n="initiative-u") Initiative
     input(type="number", name="attr_init", readonly)
     button(type="roll", name="roll_init", value="&{template:default} {{name=Initiative}} {{result=[[@{init}+0.1 &{tracker}]]}}")
         
 div.2colrow
   div.col
-    h4 Lähmungsschaden
+    h4(data-i18n="paralysis_damage-u") Lähmungsschaden
     +radio_array("para")
 
 div.2colrow
   div.col
-    h2 Schutz &amp; Gesundheit
-    label Rüstung
+    h2(data-i18n="protection_and_health-u") Schutz &amp; Gesundheit
+    label(data-i18n="armor-u") Rüstung
     select(name="attr_armor")
-      option(value="0")="Keine"
-      option(value="1")="Leicht"
-      option(value="2")="Mittel"
-      option(value="3")="Schwer"
+      option(value="0", data-i18n="none-u")="Keine"
+      option(value="1", data-i18n="light-u")="Leicht"
+      option(value="2", data-i18n="medium-u")="Mittel"
+      option(value="3", data-i18n="heavy-u")="Schwer"
   div.col
-    h2 Handlungen
-    label AP
+    h2(data-i18n="actions-u") Handlungen
+    label(data-i18n="action_points-u") AP
     input(type="number", name="attr_ap")
     span /
     input(type="number", name="attr_ap_max", readonly)
 
 div.1colrow
   div.col
-    h4 Minus-LeP
+    h4(data-i18n="negative_hp-u") Minus-LeP
     -for(i=0; i<=10; i++)
       label.sheet-container
         input(type="radio", name="attr_hp_neg", value=i)
@@ -64,17 +64,17 @@ div.1colrow
 
 div.1colrow
   div.col
-    h1 Heilfaktor
+    h1(data-i18n="healing_factor-u") Heilfaktor
 
 div.2colrow
   div.col
-    h4 Erste Hilfe
+    h4(data-i18n="first_aid-u") Erste Hilfe
     -for(i=0; i<3; i++)
       label.sheet-container
         input(type="radio", name="attr_first_aid_used", value=i)
         span.sheet-checkmark=i
   div.col
-    h4 Magische Heilung & Elixiere
+    h4(data-i18n="magical_elixir_healing-u") Magische Heilung & Elixiere
     -for(i=0; i<5; i++)
       label.sheet-container
         input(type="radio", name="attr_mag_healing_used", value=i)

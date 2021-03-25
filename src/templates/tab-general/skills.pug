@@ -2,84 +2,100 @@
   let skills = [{
     "title": "Akrobatik",
     "name": "acrobatics",
-    "attribute": "ath"
+    "attribute": "ath",
+    "i18n": "acrobatics-u"
   },{
     "title": "Aufmerksamkeit",
     "name": "perception",
-    "attribute": "sin"
+    "attribute": "sin",
+    "i18n": "perception-u"
   },{
     "title": "Erkennen",
     "name": "identify",
-    "attribute": "sin"
+    "attribute": "sin",
+    "i18n": "identify-u"
   },{
     "title": "Erste Hilfe",
     "name": "first_aid",
-    "attribute": "wis"
+    "attribute": "wis",
+    "i18n": "first_aid-u"
   },{
     "title": "Fingerfertigkeit",
     "name": "sleight_of_hands",
-    "attribute": "ges"
+    "attribute": "ges",
+    "i18n": "sleight_of_hands-u"
   },{
     "title": "Geistesstärke",
     "name": "mind",
-    "attribute": "wil"
+    "attribute": "wil",
+    "i18n": "mind-u"
   },{
     "title": "Handwerken",
     "name": "craft",
-    "attribute": "ges"
+    "attribute": "ges",
+    "i18n": "craft-u"
   },{
     "title": "Heimlichkeit",
     "name": "stealth",
-    "attribute": "ath"
+    "attribute": "ath",
+    "i18n": "stealth-u"
   },{
     "title": "Land und Leute",
     "name": "people",
-    "attribute": "wis"
+    "attribute": "wis",
+    "i18n": "people-u"
   },{
     "title": "Redekunst",
     "name": "speech",
-    "attribute": "wil"
+    "attribute": "wil",
+    "i18n": "speech-u"
   },{
     "title": "Muskelspiel",
     "name": "flex",
-    "attribute": "kkr"
+    "attribute": "kkr",
+    "i18n": "flex-u"
   },{
     "title": "Reflexe",
     "name": "reflex",
-    "attribute": "sin"
+    "attribute": "sin",
+    "i18n": "reflex-u"
   },{
     "title": "Reiten",
     "name": "ride",
-    "attribute": "ath"
+    "attribute": "ath",
+    "i18n": "ride-u"
   },{
     "title": "Unempfindlichkeit",
     "name": "imperviousness",
-    "attribute": "kkr"
+    "attribute": "kkr",
+    "i18n": "imperviousness-u"
   },{
     "title": "Wissensgebiete",
     "name": "knowledge",
-    "attribute": "wis"
+    "attribute": "wis",
+    "i18n": "knowledge-u"
   },{
     "title" : "Hexenkunst",
     "name" : "witchcraft",
-    "attribute" : "wis"
+    "attribute" : "wis",
+    "i18n": "witchcraft-u"
   }];
   skills.sort((a, b) => a.title > b.title ? 1 : -1);
 
-h2 Allgemeine F&auml;higkeiten
+h2(data-i18n="generic_skills-u") Allgemeine F&auml;higkeiten
 table
   tr
-    th Name
-    th FW
-    th Attribut
-    th Summe
+    th(data-i18n="generic_skill_name-u") Name
+    th(data-i18n="generic_skill_value-u") FW
+    th(data-i18n="generic_skill_attribute-u") Attribut
+    th(data-i18n="generic_skill_sum-u") Summe
     th
   each skill in skills
     tr
-      td= skill.title
+      td(data-i18n=skill.i18n)= skill.title
       td
         input(type="number", name="attr_" + skill.name)
-      th= "+" + skill.attribute
+      td(data-i18n=skill.attribute + "-u")= "+" + skill.attribute
       td
         input(type="number", name="attr_" + skill.name + "_sum", readonly)
       td

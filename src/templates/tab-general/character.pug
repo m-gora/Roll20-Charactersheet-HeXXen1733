@@ -30,7 +30,7 @@
     }
   ]
   
-h2 Charakter
+h2(data-i18n="character") Charakter
 each field in characterFields
-  label= field.title
+  label(data-i18n=field.name + "-u")= field.title
   input(type="text", name="attr_" + field.name)

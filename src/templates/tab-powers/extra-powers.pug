@@ -1,9 +1,9 @@
 - for(col=1; col < 3; col++)
   div.col
-    h2 Ausbaukr&auml;fte
+    h2(data-i18n="improvement_powers-u") Ausbaukr&auml;fte
     table
       tr
-        th(colspan="2") Ausbaukraft
+        th(colspan="2", data-i18n="improvement_power-u") Ausbaukraft
         th
           input(type="text", name="attr_power_group_" + col)
       - for(row=1; row < 11; row++)

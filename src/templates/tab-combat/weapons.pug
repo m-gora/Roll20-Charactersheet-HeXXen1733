@@ -2,7 +2,7 @@ mixin weapon(name, displayname,  damage, ap, attribute, info)
   tr
     td
       input(type="checkbox" name="attr_weapon_" + name)
-    td(title=info)=displayname
+    td(title=info, data-i18n=name + "-u", data-i18n-title=name + "_info-u")=displayname
       span(class="sheet-info")="i"
     td
       input(type="number", name="attr_weapon_" + name + "_dmg" value=damage disabled)
@@ -10,7 +10,7 @@ mixin weapon(name, displayname,  damage, ap, attribute, info)
       input(type="number", name="attr_weapon_" + name + "_ap" value=ap disabled)
     td
       input(type="number", name="attr_weapon_" + name + "_skill")
-    td="[+" + attribute + "]"
+    td(data-i18n=attribute + "-u")="[+" + attribute + "]"
     td
       input(type="number", name="attr_weapon_" + name + "_sum" readonly)
     td
@@ -22,116 +22,116 @@ mixin weapon(name, displayname,  damage, ap, attribute, info)
     "displayname": "Messer & Dolche",
     "damage": 1,
     "ap": 1,
-    "attribute": "Ges",
+    "attribute": "ges",
     "info": "Giftverwendung / Parade -2, ausser Fausthiebe, Dolche & Messer" 
   },{
     "name": "fencing",
     "displayname": "Fechtwaffen",
     "damage": 2,
     "ap": 1,
-    "attribute": "Ath",
+    "attribute": "ath",
     "info": "Parade -1 pro gebundenen Gegner über dem ersten" 
   },{
     "name": "swords",
     "displayname": "Schwerter",
     "damage": 3,
     "ap": 2,
-    "attribute": "Kkr",
+    "attribute": "kkr",
     "info": "Voll parierfähig" 
   },{
     "name": "saber",
     "displayname": "Säbel",
     "damage": 4,
     "ap": 2,
-    "attribute": "Kkr",
+    "attribute": "kkr",
     "info": "Parade -1" 
   },{
     "name": "saber_mounted",
     "displayname": "Säbel (beritten)",
     "damage": 5,
     "ap": 2,
-    "attribute": "Kkr",
+    "attribute": "kkr",
     "info": "Parade -1" 
   },{
     "name": "bludgeoning",
     "displayname": "Schlagwaffen",
     "damage": 5,
     "ap": 2,
-    "attribute": "Kkr",
+    "attribute": "kkr",
     "info": "Parade -2" 
   },{
     "name": "polearms",
     "displayname": "Stangenwaffen",
     "damage": 6,
     "ap": 3,
-    "attribute": "Kkr",
+    "attribute": "kkr",
     "info": "Parade kostet 2 AP" 
   },{
     "name": "polearms_vs_m",
     "displayname": "Stangenwaffen (gegen Reiter)",
     "damage": 8,
     "ap": 3,
-    "attribute": "Kkr",
+    "attribute": "kkr",
     "info": "Parade kostet 2 AP" 
   },{
     "name": "lance",
     "displayname": "Lanzen",
     "damage": 6,
     "ap": 3,
-    "attribute": "Kkr",
+    "attribute": "kkr",
     "info": "Parade kostet 2 AP" 
   },{
     "name": "lance_mounted",
     "displayname": "Lanzen (beritten)",
     "damage": 7,
     "ap": 2,
-    "attribute": "Kkr",
+    "attribute": "kkr",
     "info": "Parade kostet 2 AP" 
   },{
     "name": "sling",
     "displayname": "Schleuder",
     "damage": 1,
     "ap": 2,
-    "attribute": "Ges",
+    "attribute": "ges",
     "info": "Geschossgeeignet, Werfer muss freistehen" 
   },{
     "name": "pistol",
     "displayname": "Pistole",
     "damage": 3,
     "ap": 2,
-    "attribute": "Sin",
+    "attribute": "sin",
     "info": "Immer freie Schussmöglichkeit" 
   },{
     "name": "crossbow",
     "displayname": "Armbrust",
     "damage": 5,
     "ap": 3,
-    "attribute": "Sin",
+    "attribute": "sin",
     "info": "Schütze muss freistehen" 
   },{
     "name": "musket",
     "displayname": "Muskete",
     "damage": 8,
     "ap": 3,
-    "attribute": "Sin",
+    "attribute": "sin",
     "info": "Schütze und Ziel müssen freistehen" 
   }]
         
-h2 Waffenübersicht
+h2(data-i18n="weapons-u") Waffenübersicht
 table
   tr
-    th Waffe dabei?
-    th Name
-    th Schaden
-    th AP
-    th FW
-    th Attribut
-    th Summe
+    th(data-i18n="weapon_equipped-u") Waffe dabei?
+    th(data-i18n="name-u") Name
+    th(data-i18n="damage-u") Schaden
+    th(data-i18n="action_points-u") AP
+    th(data-i18n="value-u") FW
+    th(data-i18n="attribute-u") Attribut
+    th(data-i18n="sum-u") Summe
     th
   tr
     td
       input(type="checkbox" name="attr_weapon_fist" checked="checked" disabled)
-    td(title="Parade -3 ausser Fausthiebe")="Fausthieb"
+    td(title="Parade -3 ausser Fausthiebe", data-i18n="fist-u", data-i18n-title="fist_info-u")="Fausthieb"
       span(class="sheet-info")="i"
     td
       input(type="number", name="attr_weapon_fist_dmg" value="0" disabled)
@@ -139,7 +139,7 @@ table
       input(type="number", name="attr_weapon_fist_ap" value="1" disabled)
     td
       input(type="number", name="attr_weapon_fist_skill")
-    td="[+Ath]"
+    td(data-i18n="ath-u")="[+Ath]"
     td
       input(type="number", name="attr_weapon_fist_sum" readonly)
     td
@@ -149,14 +149,14 @@ table
   tr
     td
       input(type="checkbox" name="attr_weapon_dodge" checked="checked" disabled)
-    td(title="Pro gebundenen Gegner -1, Distanzangriffe -1")="Ausweichen"
+    td(title="Pro gebundenen Gegner -1, Distanzangriffe -1", data-i18n="dodge-u", data-i18n-title="dodge_info-u")="Ausweichen"
       span(class="sheet-info")="i"
     td
     td
       input(type="number", name="attr_weapon_dodge_ap" value="1" disabled)
     td
       input(type="number", name="attr_weapon_dodge_skill")
-    td="[+Ath]"
+    td(data-i18n="ath-u")="[+Ath]"
     td
       input(type="number", name="attr_weapon_dodge_sum" readonly)
     td
@@ -164,14 +164,14 @@ table
   tr
     td
       input(type="checkbox" name="attr_weapon_shield")
-    td(title="Nur 1x/Runde; Blockt Distanzangriffe")="Schildbenutzung"
+    td(title="Nur 1x/Runde; Blockt Distanzangriffe", data-i18n="shield-u", data-i18n-title="shield_info-u")="Schildbenutzung"
       span(class="sheet-info")="i"
     td
     td
       input(type="number", name="attr_weapon_shield_ap" value="1" disabled)
     td
       input(type="number", name="attr_weapon_shield_skill")
-    td="[+Ath]"
+    td(data-i18n="ath-u")="[+Ath]"
     td
       input(type="number", name="attr_weapon_shield_sum" readonly)
     td

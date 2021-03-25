@@ -1,4 +1,3 @@
-
 let baseStats = ["kkr", "ath", "ges", "sin", "wis", "wil"];
 let skills = ["acrobatics", "perception", "identify", "first_aid", "sleight_of_hands",
               "mind", "craft", "stealth", "people", "speech", "flex", "reflex", "ride",
@@ -23,40 +22,6 @@ on(skills.map(skill => "change:" + skill).join(" "), () => {
 on(weapons.map(weapon => "change:" + weapon).join(" "), () => {
   updateAttacks();
 });
-
-on("change:armor change:para_damage", () => {
-  updateAp();
-});
-
-// click handlers for rage and ambition
-
-on("clicked:ambition_add", () => {
-  addAmbitionOrRage("ambition", "rage");
-});
-
-on("clicked:ambition_sub", () => {
-  subAmbition();
-});
-
-on("clicked:rage_add", () => {
-  addAmbitionOrRage("rage", "ambition");
-});
-
-on("clicked:rage_sub", () => {
-  subRage();
-});
-
-// functions
-
-var updateAp = () => {
-  getAttrs(["armor", "para_damage"], (values) => {
-    let armor = parseInt(values.armor) * (-1);
-    let paraDamage = parseInt(values.para_damage) * (-1);
-    setAttrs({
-      ap_max: Math.max(sumArgs(6, armor, paraDamage), 0)
-    });
-  });
-};
 
 var updateBaseStats = () => {
   getAttrs(baseStats, (values) => {
@@ -114,50 +79,5 @@ var updateSkills = () => {
       knowledge_sum: sumArgs(values.knowledge, values.wis),
       witchcraft_sum: sumArgs(values.witchcraft, values.wis)
     });
-  });
-};
-
-var subRage = () => {
-  getAttrs(["rage"], values => {
-    if(values.rage > 0) {
-      values.rage--;
-      setAttrs(values, "silent");
-    }
-  });
-};
-
-var subAmbition = () => {
-  getAttrs(["ambition"], values => {
-    if(values.ambition > 0) {
-      values.ambition--;
-      setAttrs(values, "silent");
-    }
-  });
-};
-
-var addAmbitionOrRage = (addStat, subStat) => {
-  getAttrs(["ambition", "rage"], values => {
-    console.log(values);
-    if(values[addStat] >= 5) {
-      values[addStat] = 5;
-    } else {
-      values[addStat]++;
-    }
-
-    if(values[subStat] <= 0) {
-      values[subStat] = 0;
-    } else {
-      values[subStat]--;
-    }
-    console.log(values);
-    setAttrs(values, "silent");
-  });
-};
-
-var sumArgs = (...args) => {
-  return args.reduce((a, b) => {
-      let aInt = parseInt(a) || 0;
-      let bInt = parseInt(b) || 0;
-      return aInt + bInt;
   });
 };
