@@ -11,27 +11,34 @@ div.2colrow
     +radio_array("ext")
   div.col
     h2 Abgeleitete Ressourcen
-    h4 LeP
-    input(type="number", name="attr_hp")
-    span /
-    input(type="number", name="attr_hp_max" readonly)
+    div.2colrow
+      div.col
+        h4 LeP
+        input(type="number", name="attr_hp")
+        span /
+        input(type="number", name="attr_hp_max" readonly)
+      div.col
+        h4 Bonus-LeP
+        input(type="number", name="attr_bonus_hp")
       
 div.2colrow
   div.col
     h4 Innerer Schaden
     +radio_array("int")
-  div.col
-    h4 Bonus-LeP
-    input(type="number", name="attr_bonus_hp")
       
 div.2colrow
   div.col
     h4 Malusschaden
     +radio_array("malus")
   div.col
-    h4 Initiative
-    input(type="number", name="attr_init", readonly)
-    button(type="roll", name="roll_init", value="&{template:default} {{name=Initiative}} {{result=[[@{init}+0.1 &{tracker}]]}}")
+    div.2colrow
+      div.col
+        h4 Initiative
+        input(type="number", name="attr_init", readonly)
+        button(type="roll", name="roll_init", value="&{template:default} {{name=Initiative}} {{result=[[@{init}+0.1 &{tracker}]]}}")
+      div.col
+        h4 Bonus Initiative
+        input(type="number", name="attr_bonus_init")
         
 div.2colrow
   div.col

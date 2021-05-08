@@ -1,8 +1,11 @@
-mixin attributes(title, ...attrs)
-  h2= title
-  each attr in attrs
-    span= attr
-    input(type="number", name="attr_" + attr)
+mixin attributes(...attrs)
+  each attr, i in attrs
+    div
+      h4= attr
+      input(type="number", name="attr_" + attr)
+      if(i === 3)
+        | /
+        input(type="number", name="attr_" + attr +  "_max", readonly)
 
 div.2colrow
   div.col
@@ -17,24 +20,42 @@ div.2colrow
     textarea(name="attr_misc_gear")
 div.2colrow
   div.col
-    +attributes("Körperliche Attribute", "kkr", "ath", "ges", "coups")
-    | /
-    input(type="number", name="attr_coups_max", readonly)
+    h2 Körperliche Attribute
+    div.flex-section
+      +attributes("kkr", "ath", "ges", "coups")
+      div
+        h4 Coups Bonus
+        input(type="number", name="attr_bonus_coups")
   div.col
-    +attributes("Geistige Attribute", "sin", "wis", "wil", "ideas")
-    | /
-    input(type="number", name="attr_ideas_max", readonly)
-div.2colrow
-  div.col
-    h2 Ambitionen
-    button(type="action", name="act_ambition_sub") -
-    input(type="number", name="attr_ambition" readonly)
-    button(type="action", name="act_ambition_add") +
-  div.col
-    h2 Rage
-    button(type="action", name="act_rage_sub") -
-    input(type="number", name="attr_rage", readonly)
-    button(type="action", name="act_rage_add") +
+    h2 Geistige Attribute
+    div.flex-section
+      +attributes("sin", "wis", "wil", "ideas")
+      div
+        h4 Ideen Bonus
+        input(type="number", name="attr_bonus_ideas")
+div
+  h2 Ressourcen
+  div.flex-section
+    div
+      h4 Segnungen
+      button(type="action", name="act_blessings_sub") -
+      input(type="number", name="attr_blessings" readonly)
+      button(type="action", name="act_blessings_add") +
+    div
+      h4 Verderbnis
+      button(type="action", name="act_corruption_sub") -
+      input(type="number", name="attr_corruption" readonly)
+      button(type="action", name="act_corruption_add") +
+    div
+      h4 Ambition
+      button(type="action", name="act_ambition_sub") -
+      input(type="number", name="attr_ambition" readonly)
+      button(type="action", name="act_ambition_add") +
+    div
+      h4 Rage
+      button(type="action", name="act_rage_sub") -
+      input(type="number", name="attr_rage", readonly)
+      button(type="action", name="act_rage_add") +
 div.2colrow
   div.col
     include skills.pug
