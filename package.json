@@ -10,17 +10,22 @@
   "contributors": [],
   "dependencies": {},
   "devDependencies": {
+    "eslint": "^7.25.0",
     "ncp": "^2.0.0",
     "pug": "^3.0.0",
     "pug-cli": "^1.0.0-alpha6",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "rollup": "^2.47.0",
+    "watch": "^1.0.2"
   },
   "scripts": {
-    "build": "yarn copy-static && yarn copy-css && yarn build-html && rimraf ./dist/tab-*",
-    "watch": "pug src/templates -o dist -w -P",
+    "build": "yarn lint && yarn bundle && yarn copy-static && yarn copy-css && yarn build-html && rimraf ./dist/tab-*",
+    "watch": "watch 'yarn build-html' src ",
     "copy-static": "ncp src/static dist",
     "copy-css": "ncp src/css dist",
-    "build-html": "pug src/templates -o dist -P",
-    "clean": "rimraf ./dist"
+    "build-html": "yarn lint && pug src/templates -o dist -P",
+    "bundle": "rollup --config .rollup.config.js",
+    "clean": "rimraf ./dist",
+    "lint": "eslint src/js/*"
   }
 }
