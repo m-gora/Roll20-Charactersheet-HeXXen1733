@@ -20,7 +20,7 @@
   },
   "scripts": {
     "build": "yarn lint && yarn bundle && yarn copy-static && yarn copy-css && yarn build-html && rimraf ./dist/tab-*",
-    "watch": "watch 'yarn build-html' src ",
+    "watch": "watch 'yarn build' src ",
     "copy-static": "ncp src/static dist",
     "copy-css": "ncp src/css dist",
     "build-html": "yarn lint && pug src/templates -o dist -P",
