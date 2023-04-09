@@ -1,7 +1,7 @@
 mixin attributes(...attrs)
   each attr, i in attrs
     div
-      h4= attr
+      h3= attr
       input(type="number", name="attr_" + attr)
       if(i === 3)
         | /
@@ -24,7 +24,7 @@ div.2colrow
     div.flex-section
       +attributes("kkr", "ath", "ges", "coups")
       div
-        h4 Coups Bonus
+        h3 Coups Bonus
         input(type="number", name="attr_bonus_coups")
   div.col
     h2 Geistige Attribute
@@ -37,25 +37,25 @@ div
   h2 Ressourcen
   div.flex-section
     div
-      h4 Segnungen
-      button(type="action", name="act_blessings_sub") -
+      h3 Segnungen
+      button(type="action", name="act_blessings_sub" class="round") -
       input(type="number", name="attr_blessings" readonly)
-      button(type="action", name="act_blessings_add") +
+      button(type="action", name="act_blessings_add" class="round") +
     div
-      h4 Verderbnis
-      button(type="action", name="act_corruption_sub") -
+      h3 Verderbnis
+      button(type="action", name="act_corruption_sub" class="round") -
       input(type="number", name="attr_corruption" readonly)
-      button(type="action", name="act_corruption_add") +
+      button(type="action", name="act_corruption_add" class="round") +
     div
-      h4 Ambition
-      button(type="action", name="act_ambition_sub") -
+      h3 Ambition
+      button(type="action", name="act_ambition_sub" class="round") -
       input(type="number", name="attr_ambition" readonly)
-      button(type="action", name="act_ambition_add") +
+      button(type="action", name="act_ambition_add" class="round") +
     div
-      h4 Rage
-      button(type="action", name="act_rage_sub") -
+      h3 Rage
+      button(type="action", name="act_rage_sub" class="round") -
       input(type="number", name="attr_rage", readonly)
-      button(type="action", name="act_rage_add") +
+      button(type="action", name="act_rage_add" class="round") +
 div.2colrow
   div.col
     include skills.pug

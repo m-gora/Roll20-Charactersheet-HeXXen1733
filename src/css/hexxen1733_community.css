@@ -12,7 +12,7 @@
 /* Universal styling applied to all elements of these types */
 
 h2 {
-	font-size: 2em;
+	font-size: 1.5em;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	text-align: left;
@@ -27,6 +27,17 @@ input {
 	font-family: arial;
 	display: inline-block;
 	width: 165px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+input[readonly] {
+  font-weight: bold;
+}
+
+button.sheet-round {
+  border-radius: 50%;
 }
 
 img {
@@ -36,6 +47,10 @@ img {
 textarea {
 	font-family: arial;
 	resize: vertical;
+}
+
+td, th {
+  padding-left: 5px;
 }
 
 /* Targetted styling that only effects elements with these classes */

@@ -5,9 +5,9 @@ mixin weapon(name, displayname,  damage, ap, attribute, info)
     td(title=info)=displayname
       span(class="sheet-info")="i"
     td
-      input(type="number", name="attr_weapon_" + name + "_dmg" value=damage disabled)
+      input(type="number", name="attr_weapon_" + name + "_dmg" value=damage readonly)
     td
-      input(type="number", name="attr_weapon_" + name + "_ap" value=ap disabled)
+      input(type="number", name="attr_weapon_" + name + "_ap" value=ap readonly)
     td
       input(type="number", name="attr_weapon_" + name + "_skill")
     td="[+" + attribute + "]"
@@ -134,9 +134,9 @@ table
     td(title="Parade -3 ausser Fausthiebe")="Fausthieb"
       span(class="sheet-info")="i"
     td
-      input(type="number", name="attr_weapon_fist_dmg" value="0" disabled)
+      input(type="number", name="attr_weapon_fist_dmg" value="0" readonly)
     td
-      input(type="number", name="attr_weapon_fist_ap" value="1" disabled)
+      input(type="number", name="attr_weapon_fist_ap" value="1" readonly)
     td
       input(type="number", name="attr_weapon_fist_skill")
     td="[+Ath]"
@@ -153,7 +153,7 @@ table
       span(class="sheet-info")="i"
     td
     td
-      input(type="number", name="attr_weapon_dodge_ap" value="1" disabled)
+      input(type="number", name="attr_weapon_dodge_ap" value="1" readonly)
     td
       input(type="number", name="attr_weapon_dodge_skill")
     td="[+Ath]"
@@ -168,7 +168,7 @@ table
       span(class="sheet-info")="i"
     td
     td
-      input(type="number", name="attr_weapon_shield_ap" value="1" disabled)
+      input(type="number", name="attr_weapon_shield_ap" value="1" readonly)
     td
       input(type="number", name="attr_weapon_shield_skill")
     td="[+Ath]"
