@@ -25,5 +25,7 @@ jobs:
           source-directory: 'dist'
           destination-github-username: 'm-gora'
           destination-repository-name: 'roll20-character-sheets'
+          target-branch: 'HeXXen-1733-updates'
+          target-directory: 'HeXXen1733'
           user-email: blackanthrax666@gmail.com
           user-name: Marco Gora
