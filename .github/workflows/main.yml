@@ -30,3 +30,4 @@ jobs:
           target-branch: 'HeXXen-1733-updates'
           user-email: blackanthrax666@gmail.com
           user-name: Marco Gora
+          target-directory: HeXXen1733 
