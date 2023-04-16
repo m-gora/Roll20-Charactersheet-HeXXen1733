@@ -20,7 +20,7 @@ jobs:
       - name: rename directory
         run: mv dist HeXXen1733
       - name: push to roll20-character-sheets fork
-        uses: cpina/github-action-push-to-another-repository@master
+        uses: cpina/github-action-push-to-another-repository@v1.6
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
