@@ -9,8 +9,8 @@ var subResource = (resource, min) => {
 };
 
 var addCorruption = () => {
-  getAttrs(["blessings", "corruption"], values => {
-    var corruption = addResource(values.corruption, 5);
+  getAttrs(["blessings", "corruption", "wil"], values => {
+    var corruption = addResource(values.corruption, values.wil);
     var blessings = values.blessings;
     if(values.blessings >= 5 - values.corruption) {
       blessings = subResource(values.blessings, 0);
